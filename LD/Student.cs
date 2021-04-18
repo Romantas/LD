@@ -4,11 +4,21 @@ using System.Text;
 
 namespace LD
 {
-    public struct Student
+    public class Student
     {
-        public string name, surname;
-        public float exam, final_points, med;
-        public ArrayList hw;
+        private string name, surname;
+        private float exam, final_points;
+        private ArrayList hw;
+
+        public Student(string surname, string name, float exam, ArrayList hw)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.exam = exam;
+            this.hw = hw;
+            this.final_points = (float)(0.3 * averageHw() + 0.7 * exam);
+
+        }
 
         public float calculateMed()
         {
@@ -31,5 +41,30 @@ namespace LD
             }
             return suma / hw.Count;
         }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; }
+        }
+
+        public float Exam
+        {
+            get { return exam; }
+            set { exam = value; }
+        }
+
+        public float Final_points
+        {
+            get { return final_points; }
+            set { final_points = value; }
+        }
+
     }
 }

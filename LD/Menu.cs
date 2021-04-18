@@ -20,8 +20,6 @@ namespace LD
 
             if (read == "1")
             {
-                try
-                {
                     string[] lines = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), @"students.txt"));
 
                     lines = lines.Where((source, index) => index != 0).ToArray();
@@ -38,21 +36,11 @@ namespace LD
                         hw.Add(line[4]);
                         hw.Add(line[5]);
                         hw.Add(line[6]);
-                        students[i].surname = line[0];
-                        students[i].name = line[1];
-                        students[i].hw = hw;
-                        students[i].exam = Convert.ToSingle(line[7]);
-                        students[i].final_points = (float)(0.3 * students[i].averageHw() + 0.7 * students[i].exam);
+                        students[i] = new Student(line[0], line[1], Convert.ToSingle(line[7]), hw);
                     }
 
-                    students = students.OrderBy(c => c.surname).ToArray();
+                    students = students.OrderBy(c => c.Surname).ToArray();
                 }
-                catch (FileNotFoundException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-            }
             else
             {
                 studentCount = Convert.ToInt32(Console.ReadLine());
@@ -71,18 +59,14 @@ namespace LD
 
                     float exam = Convert.ToSingle(Console.ReadLine());
 
-                    students[i].name = name;
-                    students[i].surname = surname;
-                    students[i].hw = hw;
-                    students[i].exam = exam;
-                    students[i].final_points = (float)(0.3 * students[i].averageHw() + 0.7 * students[i].exam);
+                    students[i] = new Student(name, surname, exam, hw);
                 }
             }
             Console.WriteLine("{0, 10}{1, 10}{2, 30}{3,25}", "Surname", "Name", "Final Points (Avg.)", "/ Final points (Med.)");
             Console.WriteLine("---------------------------------------------------------------------------");
             for (int i = 0; i < studentCount; i++)
             {
-                Console.WriteLine("{0, 10}{1, 10}{2, 30}{3,25}", students[i].surname, students[i].name, students[i].final_points.ToString("n2"), students[i].calculateMed().ToString("n2"));
+                Console.WriteLine("{0, 10}{1, 10}{2, 30}{3,25}", students[i].Surname, students[i].Name, students[i].Final_points.ToString("n2"), students[i].calculateMed().ToString("n2"));
             }
 
         }
