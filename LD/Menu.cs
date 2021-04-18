@@ -13,36 +13,6 @@ namespace LD
 
             ArrayList hw = new ArrayList();
             int studentCount = 0;
-
-            Console.WriteLine("1. is failo 2. is consoles");
-
-            string read = Console.ReadLine();
-
-            if (read == "1")
-            {
-                    string[] lines = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), @"students.txt"));
-
-                    lines = lines.Where((source, index) => index != 0).ToArray();
-
-                    studentCount = lines.Length;
-
-                    students = new Student[lines.Length];
-
-                    for (int i = 0; i < studentCount; i++)
-                    {
-                        string[] line = lines[i].Split(' ');
-                        hw.Add(line[2]);
-                        hw.Add(line[3]);
-                        hw.Add(line[4]);
-                        hw.Add(line[5]);
-                        hw.Add(line[6]);
-                        students[i] = new Student(line[0], line[1], Convert.ToSingle(line[7]), hw);
-                    }
-
-                    students = students.OrderBy(c => c.Surname).ToArray();
-                }
-            else
-            {
                 studentCount = Convert.ToInt32(Console.ReadLine());
                 students = new Student[studentCount];
                 for (int i = 0; i < studentCount; i++)
@@ -61,7 +31,6 @@ namespace LD
 
                     students[i] = new Student(name, surname, exam, hw);
                 }
-            }
             Console.WriteLine("{0, 10}{1, 10}{2, 30}{3,25}", "Surname", "Name", "Final Points (Avg.)", "/ Final points (Med.)");
             Console.WriteLine("---------------------------------------------------------------------------");
             for (int i = 0; i < studentCount; i++)
