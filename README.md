@@ -53,9 +53,9 @@ Kas buvo padaryta:
 
 <b>Testavimo rezultatai:</b>
 
-List TEST iskaidymas LIST RunTime 00:00:00.0086783 Linked TEST
-iskaidymas LIST RunTime 00:00:00.0071031 Que TEST iskaidymas Que RunTime
-00:00:00.0052875
+List TEST<br/> iskaidymas LIST RunTime 00:00:00.0086783<br/> Linked
+TEST<br/> iskaidymas LIST RunTime 00:00:00.0071031<br/> Que TEST<br/>
+iskaidymas Que RunTime 00:00:00.0052875<br/>
 
 -   `List` buvo lėčiausias iš visų kolekcijų
 -   `LinkedList` buvo antras pagal greitį, tačiau `List` atsiliko tik
@@ -73,9 +73,9 @@ Kas buvo padaryta:
 
 <b>Testavimo rezultatai:</b>
 
-List TEST two iskaidymas LIST RunTime 00:00:00.0048516 Linked TEST TWO
-iskaidymas LIST RunTime 00:00:00.0061429 Que TEST TWO iskaidymas Que TWO
-RunTime 00:00:00.0181249
+List TEST two<br/> iskaidymas LIST RunTime 00:00:00.0048516<br/> Linked
+TEST TWO<br/> iskaidymas LIST RunTime 00:00:00.0061429<br/> Que TEST
+TWO<br/> iskaidymas Que TWO RunTime 00:00:00.0181249<br/>
 
 -   `List` lyginant su praeitu algoritmų, tai šis pagerino laiką
     dvigubai
